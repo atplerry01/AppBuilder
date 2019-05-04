@@ -3,6 +3,7 @@ import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import DashboardTabNavigator from './DashboardTabNavigator';
 
+
 const DashboardStackNavigator = createStackNavigator(
     {
       DashboardTabNavigator: DashboardTabNavigator
@@ -15,11 +16,14 @@ const DashboardStackNavigator = createStackNavigator(
               style={{ paddingLeft: 10 }}
               onPress={() => navigation.openDrawer()}
               name="md-menu"
+              color='#fff'
               size={30}
             />
-          )
+          ),
+          headerTintColor: '#fff'
         };
       }
+
     }
   );
   
