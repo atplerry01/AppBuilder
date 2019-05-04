@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Button, View } from 'react-native';
   
 class Feed extends Component {
    
     render() {
       return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Feed</Text>
+          <Button title="Goto Detail Feed" onPress = {() => this.props.navigation.navigate('FeedDetail')} />
         </View>
       );
     }
