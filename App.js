@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import AppDrawerNavigator from './src/navigations/AppDrawerNavigator';
+import AuthStackNavigator from './src/navigations/AuthStackNavigator';
+import LoadingScreen from './src/screens/LoadingScreen';
 
 class App extends Component {
   state = {
@@ -44,7 +46,8 @@ class App extends Component {
 export default App;
 
 const AppSwitchNavigator = createSwitchNavigator({
-  // Welcome: { screen: WelcomeScreen },
+  AuthLoading: { screen: LoadingScreen },
+  Auth: { screen: AuthStackNavigator },
   Dashboard: { screen: AppDrawerNavigator }
 });
 

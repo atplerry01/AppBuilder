@@ -1,11 +1,20 @@
-import { Button } from 'native-base';
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, AsyncStorage, StyleSheet, View } from 'react-native';
 
 var backgroundImage = require('../../assets/img/home_screen_background.jpg');
 
-class WelcomeScreen extends Component {
+class LoadingScreen extends Component {
     
+    constructor () {
+        super();
+        this.loadApp();
+    }
+    
+    loadApp = async () => {
+        const token = await AsyncStorage.getItem('userToken');
+        this.props.navigation.navigate(token ? 'Dashboard' : 'Auth')
+    }
+
     static navigationOptions = {
         header: null
     }
@@ -13,7 +22,8 @@ class WelcomeScreen extends Component {
     render() {
         return (
             <View style={styles.homeScreenView}>
-
+                <ActivityIndicator />
+{/*                 
                 <View style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: '100%' }}>
                     <Image source={backgroundImage} style={{ flex: 1, height: null, width: null }} />
                 </View>
@@ -22,7 +32,7 @@ class WelcomeScreen extends Component {
                     onPress={() => this.props.navigation.navigate('Dashboard')}
                 >
                     <Text style={{ color: 'white' }}> Search Beers</Text>
-                </Button>
+                </Button> */}
             </View>
         );
     }
@@ -37,4 +47,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default WelcomeScreen;
+export default LoadingScreen;
