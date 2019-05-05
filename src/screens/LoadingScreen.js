@@ -12,7 +12,7 @@ class LoadingScreen extends Component {
     
     loadApp = async () => {
         const token = await AsyncStorage.getItem('userToken');
-        this.props.navigation.navigate(token ? 'Dashboard' : 'Auth')
+        this.props.navigation.navigate(token ? 'Instagram' : 'Auth')
     }
 
     static navigationOptions = {
