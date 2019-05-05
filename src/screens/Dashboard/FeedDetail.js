@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
   
 class FeedDetail extends Component {
-   
+    
+    static navigationOptions = {
+      headerTitle: 'Feed Details',
+    }
+
     render() {
       return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
